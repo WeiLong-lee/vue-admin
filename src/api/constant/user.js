@@ -1,4 +1,4 @@
 // 用户登录
-export const login = '/api/post/user/login'
+export const login = '/oauth/token'
 // 用户登出
-export const logout = '/api/post/user/logout'
+export const logout = '/token/logout'

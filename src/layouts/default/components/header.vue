@@ -13,7 +13,7 @@
       <el-dropdown class="head-right">
         <div class="head-user flex pointer">
           <img :src="userInfo.avatar" class="head-avatar">
-          <span class="user-text" v-text="userInfo.name"/>
+          <span class="user-text" v-text="userInfo.username"/>
         </div>
         <el-dropdown-menu slot="dropdown" class="dropdown-menu">
           <el-dropdown-item class="dropdown-list" @click.native="onLogout">

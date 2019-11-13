@@ -30,14 +30,14 @@ const Http = async options => {
     // 将参数转成form表单的形式
     options.data = queryString(data)
   }
-
   // https://github.com/mzabriskie/axios
   // 创建一个axios实例
   const instance = axios.create({
     // 设置全局默认的headers
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
+    // headers: {
+    //   'Content-Type': 'application/x-www-form-urlencoded',
+    //   'Authorization': 'Basic Y2xpZW50MToxMjM0NTY='
+    // },
     // 设置默认根地址
     baseURL: serverBaseUrl,
     // 设置请求超时设置
@@ -55,16 +55,13 @@ const Http = async options => {
      */
     console.log('http: response', response)
     const data = response.data
-    if (+data.code === 0) {
+    if (response.status === 200) {
       // 请求成功
       console.log('http: response success', data)
       success && success(data)
       return Promise.resolve(data)
     } else {
       // 失败(这里可以做未登录或者其他权限处理)
-      if (data.code === -2) {
-        // 用户登录失效
-      }
       const errorObj = {type: 'business', ...data}
       console.log('http: response error', errorObj)
       // 失败

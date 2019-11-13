@@ -57,14 +57,17 @@ export default {
         this.submitLoad = true
 
         try {
-          const {data, msg} = await $api.user.login(form)
-          setUserInfo(data)
-          $message.success(msg)
+          const value = await $api.user.login(form.username, form.password)
+
+          // const accessToken = value.access_token
+          console.log('value:', value)
+          setUserInfo(value)
+          $message.success('登录成功')
           $router.replace(homePage)
         } catch ({type}) {
           type === 'business' && $notify.info({
             title: '温馨提示',
-            message: '账号和密码都为：admin'
+            message: '账号或密码错误'
           })
         } finally {
           this.submitLoad = false

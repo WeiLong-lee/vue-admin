@@ -70,25 +70,6 @@ export default {
           icon: 'fa-home',
           path: Home.path
         }]
-      }, {
-        label: '表格管理',
-        path: '/table',
-        icon: 'fa-table',
-        child: [{
-          label: '基本表格',
-          path: '/table/base'
-        }, {
-          label: '排序表格',
-          path: '/table/sort'
-        }]
-      }, {
-        label: '图表管理',
-        path: '/charts',
-        icon: 'fa-bar-chart-o',
-        child: [{
-          label: '柱状图表',
-          path: '/charts/bar'
-        }]
       }]
     }
   },
